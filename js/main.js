@@ -1,14 +1,19 @@
-const precioDelProducto = 1000;
-const edadDelCliente = 25;
+function calculadora() {
 
-let precioFinal;
-if (edadDelCliente < 18) {
-    precioFinal = precioDelProducto * 0.8;
-} else {
-    precioFinal = precioDelProducto;
+    const precioDelProducto = 1000;
+    const edadDelCliente = 25;
+
+    let precioFinal;
+    if (edadDelCliente < 18) {
+        precioFinal = precioDelProducto * 0.8;
+    } else {
+        precioFinal = precioDelProducto;
+    }
+
+    console.log("El precio final es de: $" + precioFinal);
 }
 
-console.log("El precio final es de: $" + precioFinal);
+calculadora();
 
 const montoTotal = 1000;
 const cantidadCuotas = 5;
