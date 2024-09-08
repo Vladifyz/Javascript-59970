@@ -1,31 +1,28 @@
-function calculadora() {
+const productos = [
+    {
+        id: 1, nombre: "Frutilla", precio: 1000
+    },
+    {
+        id: 2, nombre: "Manzana", precio: 1500
+    },
+    {
+        id: 3, nombre: "Ciruela", precio: 2000
+    },
+];
 
-    const precioDelProducto = 1000;
-    const edadDelCliente = 25;
-
-    let precioFinal;
-    if (edadDelCliente < 18) {
-        precioFinal = precioDelProducto * 0.8;
-    } else {
-        precioFinal = precioDelProducto;
-    }
-
-    console.log("El precio final es de: $" + precioFinal);
+function buscarProducto(productos, nombreProducto) {
+    const productoEncontrado = productos.find(
+        (producto) => producto.nombre.toLowerCase() === nombreProducto.toLowerCase()
+    );
+    return productoEncontrado ? productoEncontrado : null;
 }
 
-calculadora();
+const nombreProducto = prompt("Ingrese el nombre del producto:");
+const productoEncontrado = buscarProducto(productos, nombreProducto);
 
-const montoTotal = 1000;
-const cantidadCuotas = 5;
-const tasaInteresAnual = 0.1;
-
-const tasaInteresMensual = tasaInteresAnual / 12;
-const cuotaBase = montoTotal / cantidadCuotas;
-
-let saldoRestante = montoTotal;
-for (let i = 1; i <= cantidadCuotas; i++) {
-    const intereses = saldoRestante * tasaInteresMensual;
-    const cuotaConIntereses = cuotaBase + intereses;
-    saldoRestante -= cuotaBase;
-    console.log("Cuota " + i + ": $" + cuotaConIntereses);
+if (productoEncontrado) {
+    console.log(`${productoEncontrado.nombre} está disponible.`);
+    console.log(`Precio: $${productoEncontrado.precio}`);
+} else {
+    console.log(`${nombreProducto} no está disponible.`);
 }
