@@ -1,28 +1,71 @@
-const productos = [
-    {
-        id: 1, nombre: "Frutilla", precio: 1000
-    },
-    {
-        id: 2, nombre: "Manzana", precio: 1500
-    },
-    {
-        id: 3, nombre: "Ciruela", precio: 2000
-    },
-];
+let notesArray = [];
 
-function buscarProducto(productos, nombreProducto) {
-    const productoEncontrado = productos.find(
-        (producto) => producto.nombre.toLowerCase() === nombreProducto.toLowerCase()
-    );
-    return productoEncontrado ? productoEncontrado : null;
+const addNote = document.querySelector('#addNote');
+const addForm = document.querySelector('#addForm');
+const addInput = document.querySelector('#addInput');
+const saveNote = document.querySelector('#addBtn');
+const changeColor = document.querySelector('#changeColorBg');
+
+function displayNotes() {
+    addNote.innerHTML = '';
+
+    notesArray.forEach((element, index) => {
+        let noteHTML = `
+                <div class="nota1">
+                    <p>${element}</p>
+                    <p onclick="deleteNote(${index})" class="btnEliminar"><i class="bx bx-trash"></i></p>
+                </div>`;
+        addNote.innerHTML += noteHTML;
+    });
+
+    localStorage.setItem('notes', JSON.stringify(notesArray));
 }
 
-const nombreProducto = prompt("Ingrese el nombre del producto:");
-const productoEncontrado = buscarProducto(productos, nombreProducto);
+addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-if (productoEncontrado) {
-    console.log(`${productoEncontrado.nombre} está disponible.`);
-    console.log(`Precio: $${productoEncontrado.precio}`);
-} else {
-    console.log(`${nombreProducto} no está disponible.`);
+    if (addInput.value.trim() !== '') {
+        notesArray.push(addInput.value);
+        addInput.focus();
+        addForm.reset();
+        displayNotes();
+    }
+});
+
+function deleteNote(index) {
+    notesArray.splice(index, 1);
+    displayNotes();
 }
+
+function loadNotes() {
+    const savedNotes = localStorage.getItem('notes');
+    if (savedNotes) {
+        notesArray = JSON.parse(savedNotes);
+        displayNotes();
+    }
+}
+
+function changeBackgroundColor(color) {
+    document.body.style.backgroundColor = color;
+    localStorage.setItem('selectedColor', color);
+}
+
+const selectedColor = localStorage.getItem('selectedColor');
+if (selectedColor) {
+    changeBackgroundColor(selectedColor);
+}
+
+document.querySelector('#changeColorBg').addEventListener('click', () => {
+    fetch('background.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const colores = data.colores;
+            const randomColor = colores[Math.floor(Math.random() * colores.length)];
+            changeBackgroundColor(randomColor);
+        })
+        .catch((error) => {
+            console.error('Error', error);
+        });
+});
+
+document.addEventListener('DOMContentLoaded', loadNotes);   

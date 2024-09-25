@@ -1,0 +1,143 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  max-height: 750px;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#notes h5 {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.formInput {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+#addBtn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6ec1e4, #367fa9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.agregarNota {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #6b7174, #367fa9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+#addBtn:hover {
+  background: linear-gradient(135deg, #367fa9, #6ec1e4);
+}
+
+.notasguardadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nota1 {
+  background: linear-gradient(135deg, #fafafa, #e0eafc);
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.nota1 p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.nota1 p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.nota1 p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nota1 p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.nota1 p::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6ec1e4, #367fa9);
+  border-radius: 5px;
+}
+
+.nota1 p::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #367fa9, #6ec1e4);
+}
+
+.btnEliminar {
+  cursor: pointer;
+  color: #ff4d4d;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.btnEliminar .bx {
+  font-size: 20px;
+}
+
+.btnEliminar:hover {
+  transform: scale(1.1);
+}
+
+.btnEliminar:hover {
+  transform: scale(1.1);
+}

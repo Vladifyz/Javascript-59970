@@ -2,13 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <script src="js/main.js"></script>
+    <main>
+        <div class="container">
+            <h1>Bloc de Notas</h1>
+            <div class="container__notas">
+                <div id="notes" class="container__notas-1">
+                    <h5 class="">Añadir nota</h5>
+                    <form id="addForm" class="form">
+                        <input type="text" id="addInput" class="formInput" />
+                        <input type="submit" id="addBtn" class="agregarNota" value="Agregar" />
+                    </form>
+                </div>
+            </div>
+            <h1>Notas Guardadas</h1>
+            <button id="changeColorBg" class="agregarNota">Cambiar Color</button>
+            <div id="addNote" class="notasguardadas"></div>
+        </div>
+    </main>
+
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
