@@ -2,10 +2,8 @@ body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -15,6 +13,12 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   width: 800px;
   max-height: 750px;
+  overflow-y: auto;
+  margin: 0 auto 0 auto;
+}
+
+.container__notas-1 {
+  flex-wrap: wrap;
 }
 
 h1 {
